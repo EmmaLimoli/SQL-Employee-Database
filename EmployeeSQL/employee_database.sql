@@ -1,23 +1,81 @@
--- break the csv into tables, there should be a dept. and employee, title another table, 
--- change often vs. constant, create wireframes and then export data, design relationship and department table links
---create the heirarchy, independent tables, employee depends on the title table
+-- drop tables
+drop table depart_types;
+drop table titles;
+drop table dept_manager;
+drop table dept_employee;
+drop table employees_data;
+drop table salaries;
+
 
 -- CSV depart types (dep#, dept name), add primary keys
 CREATE TABLE depart_types(
-	dept_no VARCHAR,
-	dept_name VARCHAR(30)
+	dept_no VARCHAR NOT NULL,
+	dept_name VARCHAR(30) NOT NULL,
+	primary key(dept_no)
 );
-
-ALTER TABLE depart_types
-ADD COLUMN id serial primary key;
 
 select * 
 from depart_types;
 
+
+-- employees CSV (emp title, birthdate, name, sex, hire date) with primary key
+create table employees_data(
+	emp_no INTEGER primary key,
+-- employee title id = title_id in title
+	emp_title_id VARCHAR NOT NULL,
+	birth_date DATE NOT NULL,
+	first_name VARCHAR NOT NULL, 
+	last_name VARCHAR NOT NULL, 
+	sex VARCHAR(1) NOT NULL, 
+	hire_date DATE NOT NULL
+);
+
+select *
+from employees_data;
+
+-- dept employees CSV (emp# and dept#), added primary key/foreign keys to attach them
+create table dept_employee(
+	emp_no INTEGER NOT NULL,
+	dept_no VARCHAR NOT NULL,
+	FOREIGN KEY (emp_no) REFERENCES employees_data(emp_no),
+	FOREIGN KEY (dept_no) REFERENCES depart_types(dept_no),
+	PRIMARY KEY(emp_no, dept_no)
+	
+);
+
+select *
+from dept_employee;
+
+-- dept manager CSV, (dep#, emp#), added primary key/foreign key to attach
+create table dept_manager(
+	dept_no VARCHAR NOT NULL,
+	emp_no INTEGER NOT NULL,
+	FOREIGN KEY (dept_no) REFERENCES depart_types(dept_no),
+	FOREIGN KEY (emp_no) REFERENCES employees_data (emp_no),
+	primary key (dept_no, emp_no)
+);
+
+select *
+from dept_manager;
+
+-- salaries CSV (emp# & salary) with primary key
+create table salaries(	
+	emp_no INTEGER NOT NULL,
+	salary INTEGER,
+	FOREIGN KEY (emp_no) REFERENCES employees_data(emp_no),
+	primary key(emp_no)
+
+);	
+
+select *
+from salaries;
+
 -- title CSV (title id & title), added primary key
 create table titles(
+-- employee title id = title_id in title
 	title_id VARCHAR,
-	title VARCHAR(30)
+	title VARCHAR(30) NOT NULL
+	
 );
 
 ALTER TABLE titles
@@ -26,59 +84,4 @@ ADD COLUMN id serial primary key;
 select *
 from titles;
 
--- dept manager CSV, (dep#, emp#), added primary key
-drop table dept_manager;
-
-create table dept_manager(
-	dept_no VARCHAR,
-	emp_no VARCHAR
-);
-
-ALTER TABLE dept_manager
-ADD COLUMN id serial primary key;
-
-select *
-from dept_manager;
-
--- dept employees CSV (emp# and dept#), added primary key
-create table dept_employee(
-	emp_no VARCHAR,
-	dept_no VARCHAR
-);
-
-ALTER TABLE dept_employee
-ADD COLUMN id serial primary key;
-
-select *
-from dept_employee;
-
--- employees CSV (emp title, birthdate, name, sex, hire date) with primary key
-create table employees_data(
-	emp_no VARCHAR,
--- employee title id = title_id in title
-	emp_title_id VARCHAR,
-	birth_date DATE,
-	first_name VARCHAR, 
-	last_name VARCHAR, 
-	sex VARCHAR(1), 
-	hire_date DATE
-);
-
-ALTER TABLE employees_data
-ADD COLUMN id serial primary key;
-
-select *
-from employees_data;
-
--- salaries CSV (emp# & salary) with primary key
-create table salaries(
-	emp_no VARCHAR,
-	salary INT
-);	
-
-ALTER TABLE salaries
-ADD COLUMN id serial primary key;
-
-select *
-from salaries;
 
