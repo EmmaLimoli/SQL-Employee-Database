@@ -1,10 +1,10 @@
 -- drop tables
-drop table depart_types;
-drop table titles;
-drop table dept_manager;
-drop table dept_employee;
-drop table employees_data;
-drop table salaries;
+drop table if exists depart_types;
+drop table if exists titles;
+drop table if exists dept_manager;
+drop table if exists dept_employee;
+drop table if exists employees_data;
+drop table if exists salaries;
 
 
 -- CSV depart types (dep#, dept name), add primary keys
@@ -73,13 +73,10 @@ from salaries;
 -- title CSV (title id & title), added primary key
 create table titles(
 -- employee title id = title_id in title
-	title_id VARCHAR,
+	title_id VARCHAR primary key,
 	title VARCHAR(30) NOT NULL
 	
 );
-
-ALTER TABLE titles
-ADD COLUMN id serial primary key;
 
 select *
 from titles;
