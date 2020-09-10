@@ -1,2 +1,2 @@
 # sql-challenge
-sql homework
+Project using SQL to analyze data of employees at a fake company by creating queries.
