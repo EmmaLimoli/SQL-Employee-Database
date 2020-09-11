@@ -12,12 +12,14 @@ First Step: Data Modeling:
 ![data modeling](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/ERD_image/QuickDBD-export%20(1).png)
 
 Second Step: Create Tables And Queries
-Once the data modeling was complete, I created the tables and imported the CSVs into Postgres. The schema file can be found in [employees_database.sql](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/employee_database.sql). I created six different tables to match the CSVs and then I created a new sql file called queries.sql to hold all of the queries for the database. This can be found in queries.sql(https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/queries.sql). In the queries file, I created eight different queries to help sift through the data and create an ideal database. 
+Once the data modeling was complete, I created the tables and imported the CSVs into Postgres. The schema file can be found in [employees_database.sql](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/employee_database.sql). 
 
-The first query joined two tables to pull employees, employee numbers, salary, name and sex. Another query I joined three tables to look at the department name, department number, manager employee number, and employee name. In a query toward the end of the project, I pulled out specific information for two departments. I joined three different CSVs to pull out employee name, employee number, and department name in the specific departments. These are just a few of the queries I created from the CSVs.
+I created six different tables to match the CSVs and then I created a new SQL file called queries.sql to hold all of the queries for the database. This can be found in [queries.sql](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/queries.sql). In the queries file, I created eight different queries to help sift through the data and create an ideal database. 
+
+The first query I created joined two tables to pull employees, employee numbers, salary, name and sex. Another query I joined three tables to look at the department name, department number, manager employee number, and employee name. In a query toward the end of the project, I pulled out specific information for two departments. I joined three different CSVs to pull out employee name, employee number, and department name for specific departments. These are just a few of the queries I created from the tables.
 
 Third Step: Create Data Visualizations
-Once the queries were created, I took the data and created visualizations of the datbase. I took three of the sql tables and put it into Jupyter Notebook to be read. This can be found in data_visualization.ipynb (https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/data_visualization.ipynb). 
+Once the queries were created, I took the data and created visualizations of the database. I took three of the SQL tables and put it into Jupyter Notebook to be read. This can be found in [data_visualization.ipynb](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/data_visualization.ipynb). 
 
 The first visualization I created was a bar graph of the average salaries for each department.
 
