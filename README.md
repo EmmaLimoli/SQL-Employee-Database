@@ -18,6 +18,6 @@ Once the queries were created, I took the data and created visualizations of the
 
 The first visualization I created was a bar graph of the average salaries for each department.
 
-![bargraph of avg salaries of departments] (https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/ERD_image/bargraph.png)
+![bargraph of avg salaries of departments](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/ERD_image/bargraph.png)
 
 Project using SQL to analyze data of employees at a fake company by creating queries.
