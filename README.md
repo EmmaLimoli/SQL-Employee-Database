@@ -20,4 +20,11 @@ The first visualization I created was a bar graph of the average salaries for ea
 
 ![bargraph of avg salaries of departments](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/ERD_image/bargraph.png)
 
+Lastly, I created a histogram of the common salary ranges for employees in the company. I marked down the average salary range as well to provide a better understanding of where most employees fall. To create the histogram, I used bins to group the salaries. 
+
+![histogram of common salary ranges for employees](https://github.com/EmmaLimoli/sql-challenge/blob/master/EmployeeSQL/ERD_image/histograph.png)
+
+Tools Used:
+SQL, Postgres, Pandas, Matplotlib, Numpy, Scipy, SQLAlchemy, data modeling
+
 Project using SQL to analyze data of employees at a fake company by creating queries.
